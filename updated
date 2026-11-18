@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gradient — AI Learning Portal (Static Outline)</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF2F8;--grid:#DFE7F2;--panel:#FFFFFF;--panel2:#F2F6FB;--line:#D3DDEA;--text:#13213C;--muted:#56657F;
+  --blue:#2350E0;--blue-soft:#E4EBFE;--yellow:#FFB400;--amber-ink:#8A5300;--amber-soft:#FFF3D4;
+  --coral:#C9372F;--green:#17804A;--purple:#6A4FD8;--board:#14253F;--radius:10px;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Atkinson Hyperlegible',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6}
+body{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+a{color:var(--blue);text-underline-offset:3px}
+.mono{font-variant-numeric:tabular-nums;font-weight:700}
+.muted{color:var(--muted)} .small{font-size:.9rem}
+h1,h2,h3{font-family:var(--display);color:var(--text);letter-spacing:-.01em}
+h1{font-size:clamp(2rem,4.2vw,3.1rem);line-height:1.05;font-weight:800;margin:.15em 0 .35em;letter-spacing:-.025em}
+h2{font-size:1.5rem;font-weight:800;margin:1.6em 0 .55em}
+h3{font-size:1.15rem;font-weight:600;margin:.1em 0 .45em}
+p{max-width:68ch}
+.app{display:grid;grid-template-columns:236px 1fr;min-height:100vh}
+aside{background:var(--panel);border-right:1px solid var(--line);padding:22px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.4rem;margin:0 8px 24px;text-decoration:none;color:var(--text)}
+.logo small{display:block;font-family:var(--body);font-size:.75rem;font-weight:400;color:var(--muted)}
+nav span{display:block;padding:7px 12px;border-radius:6px;color:var(--text);text-decoration:none;margin-bottom:1px;font-size:.95rem}
+nav .sec{font-size:.8rem;font-weight:700;color:var(--muted);margin:18px 12px 4px}
+main{padding:0 0 40px;min-width:0}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:18px;padding:12px 32px;background:rgba(255,255,255,.94);border-bottom:1px solid var(--line)}
+.xpwrap{flex:1;max-width:400px}
+.xpbar{height:8px;background:#E2E9F3;border-radius:4px;overflow:hidden;margin-top:3px}
+.xpbar i{display:block;height:100%;background:var(--yellow);width:0%}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--line);padding:3px 11px;border-radius:99px;font-weight:700;font-size:.88rem;white-space:nowrap}
+.chip.fire{background:var(--amber-soft);border-color:#F2CF7A;color:var(--amber-ink)}
+.content{padding:32px;max-width:1080px;margin:0 auto}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center;padding:12px 0 8px}
+.lede{font-size:1.15rem;color:var(--muted);max-width:46ch}
+figure{margin:0}
+.fig div{width:100%;height:330px;display:grid;place-items:center;border-radius:10px;background:var(--board);color:#fff;font-family:var(--display)}
+figcaption{font-size:.88rem;color:var(--muted);margin-top:8px;font-style:italic}
+.pill{display:inline-block;font-size:.95rem;font-weight:700;color:var(--blue)}
+.progress{height:6px;background:#E2E9F3;border-radius:3px;overflow:hidden;margin-top:8px}
+.progress i{display:block;height:100%}
+.modnum{font-family:var(--display);font-weight:800;font-size:2.6rem;line-height:1;color:var(--blue)}
+.lesson-list div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid var(--line);color:var(--text)}
+.check{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:.75rem;flex:none}
+footer{color:var(--muted);font-size:.85rem;text-align:center;padding:24px}
+@media (max-width:900px){
+  .app{grid-template-columns:1fr}
+  aside{display:none}
+  .hero,.home-grid,.labgrid{grid-template-columns:1fr}
+  .g3{grid-template-columns:repeat(2,1fr)}
+  .content{padding:20px}
+  .topbar{padding:10px 16px;gap:10px}
+  .hide-sm{display:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside id="side">
+  <div class="logo">
+    <svg width="38" height="38" viewBox="0 0 40 40"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#58c4dd"/><stop offset="1" stop-color="#ffd23f"/></linearGradient></defs><rect width="40" height="40" rx="9" fill="#14253F"/><path d="M7 11 C 14 11, 16 30, 22 30 S 30 18, 33 14" stroke="url(#lg)" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="22" cy="30" r="3.4" fill="#ffd23f"/></svg>
+    <span>Gradient<small>learn AI, one step downhill</small></span>
+  </div>
+  <nav id="nav">
+    <span style="background:var(--blue-soft);color:var(--blue);font-weight:700">Dashboard</span>
+    <div class="sec">Learn</div>
+    <span>Learning modules</span>
+    <span>Model lab</span>
+    <div class="sec">Play</div>
+    <span>Data labeler game</span>
+    <span>Daily trivia</span>
+    <span>Challenges</span>
+    <span>Competitions</span>
+    <span>Real-world projects</span>
+    <div class="sec">Connect</div>
+    <span>Network & mentors</span>
+    <span>Hackathons near you</span>
+    <div class="sec">You</div>
+    <span>Study plan</span>
+    <span>Badges</span>
+    <span>Resource vault</span>
+    <div class="sec">About</div>
+    <span>Our TSA chapter</span>
+    <span>ℹ️ About & sources</span>
+  </nav>
+</aside>
+<main>
+  <div class="topbar">
+    <span class="chip">Level 1</span>
+    <div class="xpwrap"><div class="small muted">0 of 100 XP to level 2</div><div class="xpbar"><i></i></div></div>
+    <span class="chip fire">0-day streak</span>
+    <span class="chip hide-sm">30 training points</span>
+  </div>
+  <div class="content" id="view">
+    <h1>Gradient: learn how AI actually works</h1>
+    <div class="card" style="border-left:4px solid #FFB400">
+      <p><b>Static Outline Mode.</b> This version displays the pure HTML and CSS outline of the Gradient portal without interactive JavaScript features or tabs.</p>
+    </div>
+    <section class="hero">
+      <div>
+        <h1>Learn how AI actually works.</h1>
+        <p class="lede">Watch the math move, learn to use AI tools well, and see where AI goes wrong. Earn XP as you go, then train your own model in the lab.</p>
+        <div class="row">
+          <span class="chip">Continue learning</span>
+          <span class="chip">Today's trivia</span>
+        </div>
+      </div>
+      <figure>
+        <div class="fig"><div>[Animated Neural Network Placeholder]</div></div>
+        <figcaption>Fig. 1. A small neural network deciding between two answers.</figcaption>
+      </figure>
+    </section>
+    
+    <h2>Learning Modules Outline</h2>
+    <div class="grid g3">
+      <div class="card">
+        <div class="modnum">1</div>
+        <h2>How AI Works</h2>
+        <p class="muted small">Neurons, weights, gradient descent and how chatbots write.</p>
+        <div class="lesson-list">
+          <div><span>1. What is AI, ML, Deep Learning?</span><span class="check"></span></div>
+          <div><span>2. Inside a neural network</span><span class="check"></span></div>
+          <div><span>3. How models learn</span><span class="check"></span></div>
+          <div><span>4. Next-token prediction</span><span class="check"></span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="modnum">2</div>
+        <h2>Tools & Prompting</h2>
+        <p class="muted small">The prompting process, student AI toolkit, and catching mistakes.</p>
+        <div class="lesson-list">
+          <div><span>1. The prompting process</span><span class="check"></span></div>
+          <div><span>2. Your AI toolkit</span><span class="check"></span></div>
+          <div><span>3. Trust, but verify</span><span class="check"></span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="modnum">3</div>
+        <h2>Ethics & Bias</h2>
+        <p class="muted small">Where bias comes from, academic integrity, privacy and deepfakes.</p>
+        <div class="lesson-list">
+          <div><span>1. Where AI bias comes from</span><span class="check"></span></div>
+          <div><span>2. AI & academic integrity</span><span class="check"></span></div>
+          <div><span>3. Privacy, deepfakes & you</span><span class="check"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>Gradient is an AI learning portal for grades 9–12, built with HTML and CSS.</footer>
+</main>
+</div>
+</body>
+</html>
